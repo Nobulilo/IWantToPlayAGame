@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "28e359e6-3351-49f1-bf8f-d771ac57cb89",
+		"name": "I Want to play a game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21268197"
+	},
+	"item": [
+		{
+			"name": "201- Mensagem Enviada",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"Mensagem de teste\",\r\n \"num_destinatario\": 12345678901\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Mais de 100 caracteres",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\",\r\n \"num_destinatario\": 12345678901\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Mais de 11 digitos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"Mensagem de teste\",\r\n \"num_destinatario\": 123456789011\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Menos de 11 digitos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"Mensagem de teste\",\r\n \"num_destinatario\": 123456\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Campo Mensagem Vazio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"\",\r\n \"num_destinatario\": 12345678901\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Campo Destinatário Vazio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"Mensagem de Teste\",\r\n \"num_destinatario\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Campo Destinatário e Mensagem Vazio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"\",\r\n \"num_destinatario\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "422 - Mais de uma mensagem no mês",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 422\", function () {\r",
+							"    pm.response.to.have.status(422);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"Oi, mensagem 1\",\r\n \"num_destinatario\": 12345678901\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Tipagem campo destinatário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": \"Oi, mensagem 1\",\r\n \"num_destinatario\": \"ABC\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Tipagem campo Mensagem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"mensagem\": 123,\r\n \"num_destinatario\": 12345678901\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://7eb984w4j4.execute-api.us-east-1.amazonaws.com/dev/lambdastresstest",
+					"protocol": "https",
+					"host": [
+						"7eb984w4j4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"lambdastresstest"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Response time is less than 500ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(500);",
+					"});"
+				]
+			}
+		}
+	]
+}
